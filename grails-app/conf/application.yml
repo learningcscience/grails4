@@ -100,9 +100,12 @@ hibernate:
 dataSource:
     pooled: true
     jmxExport: true
-    driverClassName: org.h2.Driver
-    username: sa
-    password: ''
+    driverClassName: com.mysql.jdbc.Driver
+    dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+
+
+    username: road4
+    password: f3MoI0Q3Sb40KNiw
 
 environments:
     development:
@@ -116,7 +119,7 @@ environments:
     production:
         dataSource:
             dbCreate: create-drop
-            url: jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+            url: jdbc:mysql://10.1.10.205:3306/road4
 
 
 #            dbCreate: none
