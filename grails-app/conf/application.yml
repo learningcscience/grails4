@@ -107,7 +107,7 @@ hibernate:
 grails:
     plugin:
         databasemigration:
-            updateOnStart: true
+            updateOnStart: false
             updateOnStartFileName: changelog.groovy
 
 
@@ -135,7 +135,7 @@ environments:
             url: jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
     production:
         dataSource:
-            dbCreate: none
+            dbCreate: create-drop
             url: jdbc:mysql://10.1.10.205:3306/road4
             username: road4
             password: f3MoI0Q3Sb40KNiw
