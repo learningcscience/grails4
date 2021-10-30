@@ -1,8 +1,13 @@
 package grails4
 
+import grails.plugin.springsecurity.annotation.Secured
+
+
 class BookController {
 
 
+
+    @Secured('ROLE_ADMIN')
     def createABook(){
         def book = new Book(title: "Book", author: "Author")
         book.save()
@@ -12,7 +17,7 @@ class BookController {
     }
 
 
-
+    @Secured('IS_AUTHENTICATED_ANONYMOUSLY')
     def index() {
 
         def books = Book.list()
