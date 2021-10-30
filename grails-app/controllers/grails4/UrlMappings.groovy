@@ -1,4 +1,5 @@
 package grails4
+import org.springframework.security.access.AccessDeniedException
 
 class UrlMappings {
 
@@ -10,7 +11,9 @@ class UrlMappings {
         }
 
         "/"(view:"/index")
-        "500"(view:'/error')
+        "500"(controller: 'errors', action: 'error403',
+                exception: AccessDeniedException)
+
         "404"(view:'/notFound')
     }
 }

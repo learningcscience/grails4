@@ -2,6 +2,9 @@ package grails4
 import grails.gorm.transactions.Transactional
 
 class BootStrap {
+
+
+
     def init = {
         addTestUser()
     }
@@ -19,8 +22,18 @@ class BootStrap {
             it.clear()
         }
 
-        assert User.count() == 1
-        assert Role.count() == 1
-        assert UserRole.count() == 1
+
+        def roleUser = new Role(authority: 'ROLE_USER').save()
+
+        def user1 = new User(username:  "user1", password:  "password1").save()
+        UserRole.create user1, roleUser
+
+        def user2 = new User(username:  "user2", password:  "password2").save()
+        UserRole.create user2, roleUser
+
+        def user3 = new User(username:  "user3", password:  "password3").save()
+        UserRole.create user3, roleUser
+
+
     }
 }

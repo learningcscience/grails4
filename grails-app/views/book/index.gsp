@@ -15,7 +15,7 @@
 
   <g:each in="${books}" var="book">
 
-    ${book.title}
+    ${book.title} #${book.id}
 
     <br>
 
